@@ -1,18 +1,19 @@
-(function() {
-  'use strict';
+import angular from 'angular';
 
-  var MODULE_NAME = 'linagora.esn.seed';
+const MODULE_NAME = 'linagora.esn.seed';
 
-  angular.module(MODULE_NAME)
-         .directive('seedApplicationMenu', seedApplicationMenu);
+angular
+  .module(MODULE_NAME)
+  .directive('seedApplicationMenu', seedApplicationMenu);
 
-  function seedApplicationMenu(applicationMenuTemplateBuilder) {
-    var directive = {
-      restrict: 'E',
-      template: applicationMenuTemplateBuilder('/#/example', 'mdi-emoticon-happy', 'Seed'),
-      replace: true
-    };
+function seedApplicationMenu(applicationMenuTemplateBuilder) {
+  'ngInject';
 
-    return directive;
-  }
-})();
+  const directive = {
+    restrict: 'E',
+    template: applicationMenuTemplateBuilder('/#/example', 'mdi-emoticon-happy', 'Seed'),
+    replace: true
+  };
+
+  return directive;
+}

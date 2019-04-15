@@ -1,18 +1,22 @@
-'use strict';
+import angular from 'angular';
+import './home/seed-subheader.less';
+import seedSubheaderButtonTemplate from './seed-subheader-button.pug';
 
-var MODULE_NAME = 'linagora.esn.seed';
-var MODULE_DIR_NAME = '/linagora.esn.seed';
+const MODULE_NAME = 'linagora.esn.seed';
+const MODULE_DIR_NAME = '/linagora.esn.seed';
 
-angular.module(MODULE_NAME)
+angular
+  .module(MODULE_NAME)
+  .component('seedSubheaderButton', seedSubheaderButton);
 
-  .component('seedSubheaderButton', {
-    templateUrl: MODULE_DIR_NAME + '/app/subheader/seed-subheader-button.html',
-    bindings: {
-      seedDisabled: '<?',
-      seedClick: '&?',
-      seedIconClass: '@?',
-      seedIconText: '@?',
-      seedIconPosition: '@?'
-    },
-    controllerAs: 'ctrl'
-  });
+const seedSubheaderButton ={
+  template: seedSubheaderButtonTemplate(),
+  bindings: {
+    seedDisabled: '<?',
+    seedClick: '&?',
+    seedIconClass: '@?',
+    seedIconText: '@?',
+    seedIconPosition: '@?'
+  },
+  controllerAs: 'ctrl'
+};

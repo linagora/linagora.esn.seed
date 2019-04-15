@@ -1,39 +1,45 @@
-(function() {
-  'use strict';
+import angular from 'angular';
+import './home/seed-home.controller.js';
+import seedHomeTemplate from './home/seed-home.pug';
+import seedSidebarTemplate from './home/seed-sidebar.pug';
+import seedMainTemplate from './home/seed-main.pug';
 
-  var MODULE_NAME = 'linagora.esn.seed';
-  var MODULE_DIR_NAME = '/linagora.esn.seed';
+const MODULE_NAME = 'linagora.esn.seed';
+const MODULE_DIR_NAME = '/linagora.esn.seed';
 
-  angular.module(MODULE_NAME)
+angular
+  .module(MODULE_NAME)
+  .config(routes);
 
-    .config(function($stateProvider) {
-      $stateProvider
-        .state('example', {
-          url: '/example',
-          views: {
-            '': {
-              templateUrl: MODULE_DIR_NAME + '/app/home/seed-home.html'
-            },
-            'sidebar@example': {
-              templateUrl: MODULE_DIR_NAME + '/app/home/seed-sidebar.html'
-            }
-          },
-          deepStateRedirect: {
-            default: 'example.home',
-            fn: function() {
-              return { state: 'example.home' };
-            }
-          }
-        })
-        .state('example.home', {
-          url: '/home',
-          controller: 'seedHomeController',
-          controllerAs: 'ctrl',
-          views: {
-            'main@example': {
-              templateUrl: MODULE_DIR_NAME + '/app/home/seed-main.html'
-            }
-          }
-        });
+function routes($stateProvider) {
+  'ngInject';
+
+  $stateProvider
+    .state('example', {
+      url: '/example',
+      views: {
+        '': {
+          template: seedHomeTemplate()
+        },
+        'sidebar@example': {
+          template: seedSidebarTemplate()
+        }
+      },
+      deepStateRedirect: {
+        default: 'example.home',
+        fn: function() {
+          return { state: 'example.home' };
+        }
+      }
+    })
+    .state('example.home', {
+      url: '/home',
+      controller: 'seedHomeController',
+      controllerAs: 'ctrl',
+      views: {
+        'main@example': {
+          template: seedMainTemplate()
+        }
+      }
     });
-})();
+}

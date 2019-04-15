@@ -1,14 +1,17 @@
-(function() {
-  'use strict';
+import angular from 'angular';
+import './common/seed-restangular.service.js';
+import './common/seed-application-menu.directive.js';
 
-  var MODULE_NAME = 'linagora.esn.seed';
+const MODULE_NAME = 'linagora.esn.seed';
 
-  angular.module(MODULE_NAME)
-    .config(seedApplicationMenu);
+angular
+  .module(MODULE_NAME)
+  .config(seedApplicationMenu);
 
-  function seedApplicationMenu(dynamicDirectiveServiceProvider) {
-    var home = new dynamicDirectiveServiceProvider.DynamicDirective(true, 'seed-application-menu');
+function seedApplicationMenu(dynamicDirectiveServiceProvider) {
+  'ngInject';
 
-    dynamicDirectiveServiceProvider.addInjection('esn-application-menu', home);
-  }
-})();
+  const home = new dynamicDirectiveServiceProvider.DynamicDirective(true, 'seed-application-menu');
+
+  dynamicDirectiveServiceProvider.addInjection('esn-application-menu', home);
+}

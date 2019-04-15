@@ -30,7 +30,6 @@ module.exports = function(config) {
     frameworks: ['mocha'],
     colors: true,
     singleRun: true,
-    autoWatch: true,
     browsers: ['PhantomJS', 'Chrome', 'Firefox'],
     reporters: ['coverage', 'spec'],
     preprocessors: {

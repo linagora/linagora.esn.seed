@@ -8,45 +8,7 @@ module.exports = function(grunt) {
   timeGrunt(grunt);
 
   grunt.initConfig({
-    eslint: {
-      options: {
-        config: '.eslintrc'
-      },
-      quick: {
-        src: [],
-        options: {
-          quiet: true
-        }
-      },
-      all: {
-        src: ['*.js', 'tasks/**/*.js', 'test/**/*.js', 'test/**/**/*.js', 'backend/**/*.js', 'frontend/app/**/*.js']
-      }
-    },
-
-    lint_pattern: {
-      options: {
-        rules: [
-          { pattern: /(describe|it)\.only/, message: 'Must not use .only in tests' }
-        ]
-      },
-      all: {
-        src: ['<%= eslint.all.src %>']
-      },
-      css: {
-        options: {
-          rules: [
-            { pattern: /important;(\s*$|(?=\s+[^\/]))/, message: 'CSS important rules only allowed with explanatory comment' }
-          ]
-        },
-        src: [
-          'frontend/app/**/*.less'
-        ]
-      },
-      quick: {
-        src: ['<%= eslint.quick.src %>']
-      }
-    },
-
+    // TODO: PLUGIN TO CREATE
     i18n_checker: {
       all: {
         options: {
@@ -75,23 +37,6 @@ module.exports = function(grunt) {
         }
       }
     },
-
-    puglint: {
-      all: {
-        options: {
-          config: {
-            disallowAttributeInterpolation: true,
-            disallowLegacyMixinCall: true,
-            validateExtensions: true,
-            validateIndentation: 2
-          }
-        },
-        src: [
-          'frontend/**/*.pug'
-        ]
-      }
-    },
-
     splitfiles: {
       options: {
         chunk: 1
@@ -106,25 +51,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    mochacli: {
-      options: {
-        require: ['chai', 'mockery'],
-        reporter: 'spec',
-        timeout: process.env.TEST_TIMEOUT || 5000
-      },
-      backend: {
-        options: {
-          files: ['test/unit-backend/all.js', grunt.option('test') || 'test/unit-backend/**/*.js']
-        }
-      }
-    },
-
-    karma: {
-      unit: {
-        configFile: './test/config/karma.conf.js',
-        browsers: ['PhantomJS']
-      }
-    }
   });
 
   grunt.loadTasks('tasks');

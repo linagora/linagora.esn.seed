@@ -1,12 +1,11 @@
-'use strict';
+import chai from 'chai';
+import angular from 'angular';
 
-/* global chai: false */
-
-var expect = chai.expect;
+const expect = chai.expect;
 
 describe('the seedHomeController', function() {
 
-  var $rootScope, $scope, $controller;
+  const $rootScope, $scope, $controller;
 
   beforeEach(function() {
 
@@ -20,7 +19,7 @@ describe('the seedHomeController', function() {
   });
 
   function initController() {
-    var bindings = {},
+    const bindings = {},
       controller = $controller('seedHomeController',
         {
           $scope: $scope
@@ -34,7 +33,7 @@ describe('the seedHomeController', function() {
 
   describe('the initialization', function() {
     it('should set $scope.message on init', function() {
-      var ctrl = initController();
+      const ctrl = initController();
 
       expect(ctrl.message).to.equal('Seed home!');
     });

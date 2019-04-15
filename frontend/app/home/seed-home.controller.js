@@ -1,12 +1,15 @@
-(function() {
-  'use strict';
+import angular from 'angular';
+import './seed-home.less';
+import './seed-subheader.component.js';
 
-  var MODULE_NAME = 'linagora.esn.seed';
+const MODULE_NAME = 'linagora.esn.seed';
 
-  angular.module(MODULE_NAME)
-         .controller('seedHomeController', seedHomeController);
+angular
+  .module(MODULE_NAME)
+  .controller('seedHomeController', seedHomeController);
 
-   function seedHomeController() {
-     this.message = 'Seed home!';
-    }
-})();
+function seedHomeController() {
+  'ngInject';
+
+  this.message = 'Seed home!';
+}

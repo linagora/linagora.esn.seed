@@ -1,18 +1,19 @@
-(function() {
-  'use strict';
+import angular from 'angular';
+import '../subheader/seed-burger-button.component.js';
+import '../subheader/seed-subheader-button.component.js';
+import seedSubheaderTemplate from './seed-subheader.component.pug';
 
-  var MODULE_NAME = 'linagora.esn.seed';
-  var MODULE_DIR_NAME = '/linagora.esn.seed';
+const MODULE_NAME = 'linagora.esn.seed';
+const MODULE_DIR_NAME = '/linagora.esn.seed';
 
-  angular.module(MODULE_NAME)
-         .component('seedSubheader', seedSubheader());
+angular
+  .module(MODULE_NAME)
+  .component('seedSubheader', seedSubheader());
 
-  function seedSubheader() {
-    var component = {
-      templateUrl: MODULE_DIR_NAME + '/app/home/seed-subheader.html'
-    };
+function seedSubheader() {
+  const component = {
+    template: seedSubheaderTemplate()
+  };
 
-    return component;
-  }
-
-})();
+  return component;
+}

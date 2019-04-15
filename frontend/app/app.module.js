@@ -1,11 +1,12 @@
-(function() {
-  'use strict';
+import angular from 'angular';
+import uiRouter from 'angular-ui-router';
+import restangular from 'restangular';
+import opDynamicDirective from 'op.dynamicDirective';
 
-  var MODULE_NAME = 'linagora.esn.seed';
+const MODULE_NAME = 'linagora.esn.seed';
 
-  angular.module(MODULE_NAME, [
-    'ui.router',
-    'op.dynamicDirective',
-    'restangular'
-  ]);
-})();
+angular.module(MODULE_NAME, [
+  uiRouter,
+  opDynamicDirective,
+  restangular
+]);

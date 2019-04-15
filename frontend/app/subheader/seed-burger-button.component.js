@@ -1,10 +1,13 @@
-'use strict';
+import angular from 'angular';
+import seedBurgerButtonTemplate from './seed-burger-button.pug';
 
-var MODULE_NAME = 'linagora.esn.seed';
-var MODULE_DIR_NAME = '/linagora.esn.seed';
+const MODULE_NAME = 'linagora.esn.seed';
+const MODULE_DIR_NAME = '/linagora.esn.seed';
 
-angular.module(MODULE_NAME)
+angular
+  .module(MODULE_NAME)
+  .component('seedBurgerButton', seedBurgerButton);
 
-  .component('seedBurgerButton', {
-    templateUrl: MODULE_DIR_NAME + '/app/subheader/seed-burger-button.html'
-  });
+const seedBurgerButton = {
+  template: seedBurgerButtonTemplate()
+};
