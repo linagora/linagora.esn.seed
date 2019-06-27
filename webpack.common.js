@@ -8,6 +8,13 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const isProductionBuild = process.env.NODE_ENV === 'production';
 
 module.exports = {
+  resolve: {
+    modules: [
+      'node_modules',
+      'bower_components',
+      'frontend/components'
+    ]
+  },
   entry: {
     app: './frontend/app/app.js',
   },
@@ -22,20 +29,11 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.html$/,
-      use: {
-        loader: 'html-loader',
-        options: {
-          attrs: [':data-src'],
-          minimize: isProductionBuild,
-          removeComments: isProductionBuild,
-          collapseWhitespace: isProductionBuild
-        }
-      }
-    }, {
       test: /\.(pug|jade)$/,
       exclude: /(node_modules|bower_components|frontend\/components)/,
       use: [{
+        loader: 'pug-loader'
+      }, {
         loader: 'pug-lint-loader',
         options: {
           disallowAttributeInterpolation: true,

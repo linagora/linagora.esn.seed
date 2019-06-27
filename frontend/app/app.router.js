@@ -5,7 +5,6 @@ import seedSidebarTemplate from './home/seed-sidebar.pug';
 import seedMainTemplate from './home/seed-main.pug';
 
 const MODULE_NAME = 'linagora.esn.seed';
-const MODULE_DIR_NAME = '/linagora.esn.seed';
 
 angular
   .module(MODULE_NAME)

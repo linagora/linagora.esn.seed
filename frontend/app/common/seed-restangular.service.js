@@ -1,5 +1,4 @@
 import angular from 'angular';
-import restangular from 'restangular';
 
 const MODULE_NAME = 'linagora.esn.seed';
 const MODULE_DIR_NAME = '/linagora.esn.seed';

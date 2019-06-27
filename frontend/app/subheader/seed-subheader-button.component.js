@@ -1,9 +1,8 @@
 import angular from 'angular';
-import './home/seed-subheader.less';
 import seedSubheaderButtonTemplate from './seed-subheader-button.pug';
+// import './seed-subheader.less';
 
 const MODULE_NAME = 'linagora.esn.seed';
-const MODULE_DIR_NAME = '/linagora.esn.seed';
 
 angular
   .module(MODULE_NAME)

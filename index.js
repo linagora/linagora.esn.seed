@@ -5,6 +5,7 @@ const Dependency = AwesomeModule.AwesomeModuleDependency;
 const path = require('path');
 const glob = require('glob-all');
 const FRONTEND_JS_PATH = __dirname + '/frontend/app/';
+const FRONTEND_JS_PATH_BUILD = __dirname + '/dist/';
 const AWESOME_MODULE_NAME = 'linagora.esn.seed';
 
 const awesomeModule = new AwesomeModule(AWESOME_MODULE_NAME, {
@@ -42,8 +43,7 @@ const awesomeModule = new AwesomeModule(AWESOME_MODULE_NAME, {
 
       // Register every exposed frontend scripts
       const frontendJsFilesFullPath = glob.sync([
-        FRONTEND_JS_PATH + '**/*.module.js',
-        FRONTEND_JS_PATH + '**/!(*spec).js'
+        FRONTEND_JS_PATH + '**/*.js',
       ]);
       const frontendJsFilesUri = frontendJsFilesFullPath.map(function(filepath) {
         return filepath.replace(FRONTEND_JS_PATH, '');

@@ -1,5 +1,8 @@
 {
-  "extends": "linagora-esn",
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parser": "babel-eslint",
   "rules": {
     "arrow-parens": ["error", "as-needed"],
     "no-console": ["error", { "allow": ["warn", "error"] }]

@@ -1,5 +1,5 @@
 import angular from 'angular';
-import './seed-home.less';
+// import './seed-home.less';
 import './seed-subheader.component.js';
 
 const MODULE_NAME = 'linagora.esn.seed';

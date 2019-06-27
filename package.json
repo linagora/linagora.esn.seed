@@ -61,6 +61,7 @@
     "phantomjs-prebuilt": "2.1.16",
     "postcss-loader": "^3.0.0",
     "pug-lint-loader": "0.0.4",
+    "pug-loader": "^2.4.0",
     "rewire": "2.5.2",
     "sinon": "1.17.5",
     "sinon-chai": "2.8.0",
